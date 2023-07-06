@@ -15,12 +15,13 @@ class MainController extends AbstractController
     #[Route('/', name: 'app_main')]
     public function test()
     {
-
-        $name = "kiki";
         $age = 44;
+        $name = "kiki";
+
+
         return $this->render('main.html.twig', [
+            'age' => $age,
             'name' => $name,
-            'age' => $age
         ]);
     }
 
@@ -28,5 +29,18 @@ class MainController extends AbstractController
     public function contact()
     {
         return $this->render('contact.html.twig');
+    }
+    #[Route('/tableaux', name: 'app_tableaux')]
+
+
+    public function tableaux()
+    {
+
+
+        $fruits = ["Tomates", "Pommes", "Poires"];
+        return $this->render('tableaux.html.twig', [
+
+            'fruits' => $fruits,
+        ]);
     }
 }

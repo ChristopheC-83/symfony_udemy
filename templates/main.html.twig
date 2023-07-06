@@ -1,18 +1,33 @@
-<html>
-	<head>
-
-		<title>Page Web Kiki</title>
+{% extends 'base.html.twig'  %}
 
 
-	</head>
-	<body>
-		<h1>Page d'accueil</h1>
-		<h2>Bienvenue
-			{{name}}, tu as
-			{{age}}
+{% block title  %}Page Accueil Kiki
+{% endblock %}
+
+
+{% block container  %}
+
+
+	<h1>Page d'accueil</h1>
+	<h2>Bienvenue
+		{{name|capitalize}}
+		, tu as
+		{{age}}
+		{%if age >1  %}
 			ans.
-		</h2>
-		<a href="{{ path('app_contact') }}">Contact</a>
-	</body>
+			{% else%}
+			an.
+		{% endif %}
 
-</html>
+	</h2>
+	{%if age >= 18  %}
+		Tu es majeur.
+		{% else%}
+		Tu es mineur.
+	{% endif %}
+	<br>
+	<p>Ternaire :
+		{{age>=18?"Tu es majeur":"Tu es mineur"}}</p>
+
+
+{% endblock %}
